@@ -9,7 +9,6 @@ fetch("https://api.github.com/repositories/1296269/issues?page=${1}&per_page=5."
             const element = product[i];
             console.log(product[i].title);
             ol.innerHTML += `<li>${product[i].title}</li>`
-            console.log(ol.innerHTML);
         }
     })
 
@@ -24,12 +23,11 @@ next.addEventListener('click', () => {
         .then((response) => response.json())
         .then((product) => {
             document.getElementById('page_number').innerHTML = `Page Number ${i}`;
+            ol.innerHTML = '';
             for (let z = 0; z < 5; z++) {
                 const element = product[z];
                 console.log(product[z].title);
-                ol.innerHTML = '';
                 ol.innerHTML += `<li>${product[z].title}</li>`
-                console.log(ol.innerHTML);
             }
         })
 })
@@ -41,10 +39,10 @@ prev.addEventListener('click', () => {
         .then((response) => response.json())
         .then((product) => {
             document.getElementById('page_number').innerHTML = `Page Number ${i}`;
+            ol.innerHTML = '';
             for (let z = 0; z < 5; z++) {
                 const element = product[z];
                 console.log(product[z].title);
-                ol.innerHTML = '';
                 ol.innerHTML += `<li>${product[z].title}</li>`
                 console.log(ol.innerHTML);
             }
